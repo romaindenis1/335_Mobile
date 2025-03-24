@@ -1,0 +1,165 @@
+# Notes Romain Denis 335
+
+## Questions
+
+> 1. Que veut dire l'acronyme MAUI ?
+>    - Multi
+>    - App
+>    - User
+>    - Interface
+> 2. Comment ça se fait que le C# fonctionne sur Android ?  
+>    Le projet MAUI transforme (avec le runtime Android) pour Android
+> 3. Comment tester une application MAUI sans smartphone et comme cela fonctionne-t-il donc ?  
+>    Avec un émulateur (machine virtuelle), qui fait croire qu'on est sur un téléphone
+> 4. Citez 3 alternatives à MAUI pour faire du dev multi-platforme ?
+>    1. Web
+>    2. React
+>    3. CodeClean
+
+## Sequence 1 (21/03/25)
+
+### Theory
+
+#### Difference between mobile and non mobile applications
+
+**Interface**: Mobile has a different interface with a smaller area to work with and it's oriented differently
+
+**Resources**: Mobile needs to have a more precise way of managing resources, due to the weaker specs compared to a computer
+
+**Mobile Specific Function**: Most phones have more media to work with than a computer like shake detection, camera and more
+
+**Controlled distribution**: Mobile apps are typically controlled and need to go through stores to install like Apple Store, Google Play, ect
+
+**UX**: There are different ways to communicate and navigate through an app
+
+#### Technologies, advantages and disadvantages
+
+**Web**
+
+**Specific native**
+
+- Using native language on each platform
+
+  - Android → Java
+
+  - iOS → Objective-C, Swift
+
+**Linked native**
+
+- Development in another language, but aiming a specific platform
+
+  - Python (Kivy)
+
+  - Kotlin
+
+**Natif with runtime**
+
+- Development in a language translated into the native language via runtime
+
+  - .NET MAUI (Mono)
+
+  - React (JavaScript)
+
+  - Flutter
+
+#### Avantages and disadvantages
+
+- Development with runtime is less efficient than native specifique development
+
+- Time is gained avoiding to learn multiple languages
+
+#### Accelerometer in HTML
+
+- The accelerometer can be used in HTML using Javascript APIs
+
+### Project
+
+#### Start with the code or the storyboard
+
+- A good schema decreases the risk of producing bad code
+
+- Investing time into a schema allows for a clear vision of the frontend and backend functionalities
+
+#### Visual Studio
+
+Setup of the environment
+
+- Use Visual Studio 2022.
+
+- Modify Visual Studio, tick `.NET Multi-platform App UI Development`.
+
+- Open VS2022 and create a MAUI project.
+
+- Accept the licence
+
+- Execute the script that runs the emulator
+
+- Execute the app from VS
+
+#### Debug on phone
+
+- Go to `Settings > Developer Settings > Activate Debug (Developer mode)`.
+
+- Execute from VS2022.
+
+#### Discussions
+
+- Do not stock on external disks or on the cloud (too slow and too big)
+
+- Deployment is possible on emulator and physical phone
+
+- Physical phone is needed to test phyiscal features (shaking the phone, ect)
+
+#### Project structure
+
+- **MainProgram.cs** : Technical, don't touch
+
+- **App.xaml / App.xaml.cs** :
+
+  - `.xaml` graphical section (vue)
+
+  - `.xaml.cs` code assosiated with the view
+
+  - Calls `AppShell` don't touch
+
+- **AppShell.xaml** : Manages the navigation
+
+- **MainPage.xaml** : Main page showing `Hello world` originally
+
+### XAML
+
+#### Définition
+
+XML with beacons definied in XML namespaces
+
+- **X**tensible
+
+- **A**pplication
+
+- **M**arkup
+
+- **L**anguage
+
+### XAML basics
+
+- Opening and closing beacons (like HTML)
+
+- Beacons with attributes and content (without content = autoclosing beacon `/>`)
+
+- Structured hierachy (russian dolls)
+
+- Direct translation possible from french to XAML
+
+## Sequence 2
+
+## Sequence 3
+
+## Sequence 4
+
+## Sequence 5
+
+## Sequence 6
+
+## Sequence 7
+
+## Sequence 8
