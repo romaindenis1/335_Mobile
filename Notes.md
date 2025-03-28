@@ -150,7 +150,81 @@ XML with beacons definied in XML namespaces
 
 - Direct translation possible from french to XAML
 
-## Sequence 2
+## Sequence 2 (28.03.25)
+
+### Theorie
+
+#### Shell
+
+Types de page:
+
+**Content Page**
+
+- Some content
+
+**Flyout Page**
+
+- Page that pops out of the side (like a menu)
+
+**Tabbed Page**
+
+- Little icons at the bottom
+- What happens when they are no more space for tabs ?
+  - Three little dots with "more"
+
+**Navigation Page**
+
+- With a bar at the top
+
+#### Types of MAUI APPS
+
+1. Basic
+
+- No navigation menu
+
+2. Shell (default on a new app)
+
+- Has a navigation or flyout system
+
+#### Adding a new page
+
+While in a MAUI project, go to project > add a new class > MAUI pages > content page (XAML)
+
+#### Navigation
+
+- We will be stacking pages
+- Every page has a back button to go down the proverbial stack
+- All pages before the cureent page will be generated, so it will be much more resource intensive
+- Going up a page in the stack is called a push, and the opposite is a pop
+  - Example: a back button's code would be await `Navigation.PopAsync();`
+
+#### Layouts
+
+There will be a header main left right and footer sections
+
+#### Layout templates
+
+**Stack Layout**
+
+- To stack different layouts
+- Can put a absolute inside a grid inside the header ect.
+
+**Absolute Layout**
+
+- Using absolute values
+- Tell every element exaclty where to be
+- Can have mutliple elements overlapping
+- Not responsive
+- Takes a long time
+
+**Grid Layout**
+
+- Define the number of rows and columns
+- Self explantory
+
+**Flex Layout**
+
+- Like CSS
 
 ## Sequence 3
 
