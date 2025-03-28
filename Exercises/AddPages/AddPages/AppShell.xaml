@@ -7,9 +7,17 @@
     Shell.FlyoutBehavior="Disabled"
     Title="AddPages">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+   
+    <TabBar>
+        <Tab Title="Accueil" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
+        </Tab>
+        <Tab Title="Profil" Icon="profile.png">
+            <ShellContent ContentTemplate="{DataTemplate local:NewPage1}" />
+        </Tab>
+        <Tab Title="Profil" Icon="profile.png">
+        <ShellContent ContentTemplate="{DataTemplate local:NewPage2}" />
+        </Tab>
 
+    </TabBar>
 </Shell>
