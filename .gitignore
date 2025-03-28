@@ -1,0 +1,26 @@
+# Ignore Visual Studio specific files
+.vs/
+*.suo
+*.user
+*.vcxproj.user
+*.db
+*.opendb
+
+# Ignore build artifacts
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+*.cache
+*.log
+
+# Ignore package-related files
+packages/
+node_modules/
+
+# Ignore user-specific settings
+*.csproj.user
+*.csproj.user.json
+*.sln.cache
+*.sln.ide
