@@ -235,9 +235,39 @@ There will be a header main left right and footer sections
 
 **Flex Layout**
 
-- Like CSS
+- Like CSS (In the manner that it is responsive)
 
 ## Sequence 3 (04.04.25)
+
+### Theory
+
+#### CRUD
+
+_How to program user interactions in MAUI?_
+
+1. Code behind
+
+- Spaghetti code
+- Hard to test
+
+MVVM (Model view view model)
+
+- Understanble
+- Extendable
+- Easy to test
+
+Model : C#
+View: XAML
+
+Quirk:
+Model library imposes that methods have a capital letter while declaring it is in lowercase
+Example :
+
+`Not in method: private int counter = 0;
+In method: Counter+= 1;`
+This is really bad practice but it is what it is
+
+### Project
 
 ## Sequence 4
 
