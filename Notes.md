@@ -15,6 +15,17 @@
 >    1. Web
 >    2. React
 >    3. CodeClean
+> 5. Citez le type d'application qui permetent deux types de navigation
+>    Tout navigue avec app.shell
+>    1. Flyout - Une page qui apparait au dessus de une autre
+>    2. Tabulation - Petit tabs en bas
+> 6. Avec une navigation non shell, comment est il possible de naviguer entre une page et une autre
+>    Push (descendre dans le stack), pop (monter dans le stack)
+> 7. Citez les 4 layouts de base et leurs contenus
+>    1. Grid - Des carres
+>    2. Flex - Reponsive
+>    3. Stack - Met des elements a la suite verticallement ou horizontal (vertical de base)
+>    4. Absolute - Toutes les positions sont mis en dur
 
 ## Sequence 1 (21/03/25)
 
