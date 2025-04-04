@@ -194,7 +194,7 @@ While in a MAUI project, go to project > add a new class > MAUI pages > content 
 
 - We will be stacking pages
 - Every page has a back button to go down the proverbial stack
-- All pages before the cureent page will be generated, so it will be much more resource intensive
+- All pages before the current page will be generated, so it will be much more resource intensive
 - Going up a page in the stack is called a push, and the opposite is a pop
   - Example: a back button's code would be await `Navigation.PopAsync();`
 
@@ -226,7 +226,7 @@ There will be a header main left right and footer sections
 
 - Like CSS
 
-## Sequence 3
+## Sequence 3 (04.04.25)
 
 ## Sequence 4
 

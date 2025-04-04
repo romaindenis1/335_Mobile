@@ -19,5 +19,6 @@
         <ShellContent ContentTemplate="{DataTemplate local:NewPage2}" />
         </Tab>
 
-    </TabBar>
+    </TabBar>
+
 </Shell>
