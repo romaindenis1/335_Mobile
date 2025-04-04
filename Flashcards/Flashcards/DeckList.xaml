@@ -11,7 +11,7 @@
                 Text="Deck list page!"
                 Style="{StaticResource Headline}"
                 SemanticProperties.HeadingLevel="Level1" />
-            <Button Text="Deck" Clicked="DeckModifyClicked"/>
+            <Button Text="Deck (VARIABLE)" Clicked="DeckModifyClicked"/>
         </VerticalStackLayout>
     </ScrollView>
 
