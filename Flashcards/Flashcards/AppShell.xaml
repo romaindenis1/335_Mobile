@@ -34,4 +34,9 @@
             Title="Quiz" 
             ContentTemplate="{DataTemplate local:QuestionPage}" 
             Route="QuestionPage" />
+
+        <ShellContent 
+            Title="Answer" 
+            ContentTemplate="{DataTemplate local:AnswerPage}" 
+            Route="AnswerPage" />
 </Shell>
