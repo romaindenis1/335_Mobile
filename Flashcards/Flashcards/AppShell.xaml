@@ -6,6 +6,10 @@
     xmlns:local="clr-namespace:Flashcards"
     Shell.FlyoutBehavior="Disabled"
     Title="Flashcards">
+        <ShellContent 
+            Title="Decks" 
+            ContentTemplate="{DataTemplate local:DeckSelectPage}" 
+            Route="DeckSelectPage" />
 
     <ShellContent
         Title="Home"
