@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Flashcards.DeleteCardPage"
+             Title="DeleteCardPage">
+    <VerticalStackLayout Padding="20" VerticalOptions="Center">
+        <Entry Placeholder="Enter question here"/>
+        <Entry Placeholder="Enter answer here"/>
+        <Label Text="Tarout"/>
+        <HorizontalStackLayout>
+            <Button Text="X" BackgroundColor="Red" TextColor="White"/>
+            <Button Text="GO" BackgroundColor="Green" TextColor="White"/>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>

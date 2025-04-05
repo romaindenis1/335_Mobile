@@ -16,9 +16,19 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="DeckList" />
         <ShellContent 
+            Title="Modify" 
+            ContentTemplate="{DataTemplate local:ModifyDeckPage}" 
+            Route="ModifyDeckPage" />
+
+        <ShellContent 
             Title="Add" 
             ContentTemplate="{DataTemplate local:AddCardPage}" 
             Route="AddCardPage" />
+
+        <ShellContent 
+            Title="Delete" 
+            ContentTemplate="{DataTemplate local:DeleteCardPage}" 
+            Route="DeleteCardPage" />
 
         <ShellContent 
             Title="Quiz" 
