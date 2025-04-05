@@ -15,6 +15,10 @@
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="DeckList" />
+        <ShellContent 
+            Title="Add" 
+            ContentTemplate="{DataTemplate local:AddCardPage}" 
+            Route="AddCardPage" />
 
         <ShellContent 
             Title="Quiz" 
