@@ -6,15 +6,12 @@
     xmlns:local="clr-namespace:Flashcards"
     Shell.FlyoutBehavior="Disabled"
     Title="Flashcards">
+    <TabBar>
         <ShellContent 
             Title="Decks" 
             ContentTemplate="{DataTemplate local:DeckSelectPage}" 
             Route="DeckSelectPage" />
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="DeckList" />
         <ShellContent 
             Title="Modify" 
             ContentTemplate="{DataTemplate local:ModifyDeckPage}" 
@@ -39,4 +36,10 @@
             Title="Answer" 
             ContentTemplate="{DataTemplate local:AnswerPage}" 
             Route="AnswerPage" />
+
+        <ShellContent 
+            Title="Results" 
+            ContentTemplate="{DataTemplate local:ResultsPage}" 
+            Route="ResultsPage" />
+    </TabBar>
 </Shell>
