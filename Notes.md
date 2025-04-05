@@ -161,7 +161,7 @@ XML with beacons definied in XML namespaces
 
 - Direct translation possible from french to XAML
 
-## Sequence 2 (28.03.25)
+## Sequence 2 (28/03/25)
 
 ### Theorie
 
@@ -237,7 +237,7 @@ There will be a header main left right and footer sections
 
 - Like CSS (In the manner that it is responsive)
 
-## Sequence 3 (04.04.25)
+## Sequence 3 (04/04/25)
 
 ### Theory
 
@@ -249,8 +249,9 @@ _How to program user interactions in MAUI?_
 
 - Spaghetti code
 - Hard to test
+- Completly manual
 
-MVVM (Model view view model)
+2. MVVM (Model view view model)
 
 - Understanble
 - Extendable
@@ -261,20 +262,24 @@ View: XAML
 
 Quirk:
 Model library imposes that methods have a capital letter while declaring it is in lowercase
-Example :
+
+For example :
 
 `Not in method: private int counter = 0;
 In method: Counter+= 1;`
+
 This is really bad practice but it is what it is
 
 ### Project
 
-## Sequence 4
+Nothing this week
 
-## Sequence 5
+## Sequence 4 (11/04/25)
 
-## Sequence 6
+## Sequence 5 (25/04/25)
 
-## Sequence 7
+## Sequence 6 (02/05/25)
 
-## Sequence 8
+## Sequence 7 (09/05/25)
+
+## Sequence 8 (16/05/25)
