@@ -276,6 +276,10 @@ Nothing this week
 
 ## Sequence 4 (11/04/25)
 
+### Debug
+
+Using Trace.Command() traces something in the output file
+
 ## Sequence 5 (25/04/25)
 
 ## Sequence 6 (02/05/25)
