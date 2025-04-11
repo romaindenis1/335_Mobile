@@ -31,5 +31,4 @@ namespace _5ListView.ViewModels
             return !string.IsNullOrEmpty(WishEntry);
         }
     }
-
 }
