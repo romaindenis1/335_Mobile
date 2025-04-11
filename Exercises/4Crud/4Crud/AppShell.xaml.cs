@@ -1,4 +1,4 @@
-﻿namespace Flashcards
+﻿namespace _4Crud
 {
     public partial class AppShell : Shell
     {
