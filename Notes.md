@@ -26,6 +26,12 @@
 >    2. Flex - Reponsive
 >    3. Stack - Met des elements a la suite verticallement ou horizontal (vertical de base)
 >    4. Absolute - Toutes les positions sont mis en dur
+> 8. Que veux dire MVVM?
+>    Model view view model
+> 9. A quoi sert l'annotation [RelayCommand] et [ObvservableProperty] ?
+>    Ca vient du Community ToolKit, ca lie une variable a un type C#
+> 10. Comment faire en sorte que un label affiche une valeur dynamique?
+>     Sur l'attribut texte il faut metre un binding et sur le view model [ObservableProperty]
 
 ## Sequence 1 (21/03/25)
 
