@@ -9,13 +9,13 @@
     <TabBar>
         <ShellContent 
             Title="Decks" 
-            ContentTemplate="{DataTemplate local:DeckSelectPage}" 
-            Route="DeckSelectPage" />
+            ContentTemplate="{DataTemplate local:MainPage}" 
+            Route="MainPage" />
 
         <ShellContent 
             Title="Modify" 
-            ContentTemplate="{DataTemplate local:ModifyDeckPage}" 
-            Route="ModifyDeckPage" />
+            ContentTemplate="{DataTemplate local:ModifyCardPage}" 
+            Route="ModifyCardPage" />
 
         <ShellContent 
             Title="Add" 
