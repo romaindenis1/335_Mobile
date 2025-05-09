@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Flashcards.DeleteCardPage"
-             Title="DeleteCardPage">
-    <VerticalStackLayout Padding="20" VerticalOptions="Center">
-        <Entry Placeholder="Enter question here"/>
-        <Entry Placeholder="Enter answer here"/>
-        <Label Text="Tarout"/>
-        <HorizontalStackLayout>
-            <Button Text="X" BackgroundColor="Red" TextColor="White"/>
-            <Button Text="GO" BackgroundColor="Green" TextColor="White"/>
+             x:Class="Flashcards.DeleteCardPage">
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="Delete Card" FontSize="24" FontAttributes="Bold" HorizontalOptions="Center"/>
+        <Label Text="Are you sure you want to delete this card?" FontSize="16"/>
+        <Label Text="{Binding SelectedCard.Title}" FontSize="18" FontAttributes="Bold"/>
+        <Label Text="{Binding SelectedCard.Description}" FontSize="14"/>
+        <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+            <Button Text="Delete" Command="{Binding DeleteCardCommand}"/>
+            <Button Text="Cancel" Command="{Binding CancelCommand}"/>
         </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>

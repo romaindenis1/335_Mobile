@@ -2,9 +2,9 @@ using Microsoft.Maui.Controls;
 
 namespace Flashcards
 {
-    public partial class DeleteCardPage : ContentPage
+    public partial class ModifyCardPage : ContentPage
     {
-        public DeleteCardPage(CardViewModel viewModel)
+        public ModifyCardPage(CardViewModel viewModel)
         {
             InitializeComponent();
             BindingContext = viewModel;
