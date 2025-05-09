@@ -5,30 +5,30 @@ namespace Flashcards
 {
     public class Card : INotifyPropertyChanged
     {
-        private string _title;
-        private string _description;
+        private string _question;
+        private string _answer;
 
-        public string Title
+        public string Question
         {
-            get => _title;
+            get => _question;
             set
             {
-                if (_title != value)
+                if (_question != value)
                 {
-                    _title = value;
+                    _question = value;
                     OnPropertyChanged();
                 }
             }
         }
 
-        public string Description
+        public string Answer
         {
-            get => _description;
+            get => _answer;
             set
             {
-                if (_description != value)
+                if (_answer != value)
                 {
-                    _description = value;
+                    _answer = value;
                     OnPropertyChanged();
                 }
             }

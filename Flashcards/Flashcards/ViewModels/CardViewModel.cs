@@ -41,8 +41,8 @@ namespace Flashcards
         {
             Cards = new ObservableCollection<Card>
             {
-                new Card { Title = "Sample Card 1", Description = "This is a sample description." },
-                new Card { Title = "Sample Card 2", Description = "Another sample description." }
+                new Card { Question = "Quelle est la capitale du kenya?", Answer = "Nairobi" },
+                new Card { Question = "Quelle est la capitale du danemark?", Answer = "Copenhagen" }
             };
 
             AddCardCommand = new Command(async () =>
@@ -53,7 +53,7 @@ namespace Flashcards
 
             EditCardCommand = new Command<Card>(async (card) =>
             {
-                SelectedCard = card; // Use the original card reference
+                SelectedCard = card;
                 await Application.Current.MainPage.Navigation.PushAsync(new ModifyCardPage(this));
             });
 
@@ -65,13 +65,13 @@ namespace Flashcards
 
             SaveCardCommand = new Command(async () =>
             {
-                if (!string.IsNullOrWhiteSpace(SelectedCard.Title))
+                if (!string.IsNullOrWhiteSpace(SelectedCard.Question))
                 {
-                    if (!Cards.Contains(SelectedCard)) // Add new card if not in collection
+                    if (!Cards.Contains(SelectedCard))
                     {
                         Cards.Add(SelectedCard);
                     }
-                    // Updates are handled by Card's INotifyPropertyChanged
+                    
                     await Application.Current.MainPage.Navigation.PopAsync();
                 }
             });
@@ -85,7 +85,7 @@ namespace Flashcards
             {
                 if (card != null)
                 {
-                    Cards.Remove(card); // Remove the card from the collection
+                    Cards.Remove(card);
                     await Application.Current.MainPage.Navigation.PopAsync();
                 }
             });

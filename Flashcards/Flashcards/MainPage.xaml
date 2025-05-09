@@ -18,11 +18,11 @@
                                     <RowDefinition Height="Auto"/>
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
-                                <Label Text="{Binding Title}" 
+                                <Label Text="{Binding Question}" 
                                        FontSize="18" 
                                        FontAttributes="Bold"/>
                                 <Label Grid.Row="1" 
-                                       Text="{Binding Description}" 
+                                       Text="{Binding Answer}" 
                                        FontSize="14"/>
                                 <HorizontalStackLayout Grid.Row="2" 
                                                       Spacing="10" 
