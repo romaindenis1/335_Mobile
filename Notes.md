@@ -288,8 +288,16 @@ Using Trace.Command() traces something in the output file
 
 ## Sequence 5 (25/04/25)
 
+Continuation de projet
+
 ## Sequence 6 (02/05/25)
+
+Continuation de projet
 
 ## Sequence 7 (09/05/25)
 
+Continuation de projet
+
 ## Sequence 8 (16/05/25)
+
+### Animations
