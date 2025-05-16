@@ -32,6 +32,16 @@
 >    Ca vient du Community ToolKit, ca lie une variable a un type C#
 > 10. Comment faire en sorte que un label affiche une valeur dynamique?
 >     Sur l'attribut texte il faut metre un binding et sur le view model [ObservableProperty]
+> 11. Comment faire pour que le contenu d'une liste soit savuegardé entre 2 utilisations de l'application
+>     Avec une base de donnes, par example sqlite
+>     En utilisant une gestion de fichier texte
+> 12. A quelle frequence les donnes accelerometre sont transmises?
+>     Avec des presets predefinis DEFAULT (200ms) UI(60ms) GAME(20ms) FASTEST (5ms)
+> 13. Quelles axes et ce que l'accelerometre peux detecter des changements
+>     X,Y,Z
+> 14. En quoi et ce que les capteurs peuvement impacter negativement l'appareil
+>     Utilise des resources du telephone (Batterie RAM ect)
+>     Depend du nombre de capteurs et le presision d'un capteur
 
 ## Sequence 1 (21/03/25)
 
