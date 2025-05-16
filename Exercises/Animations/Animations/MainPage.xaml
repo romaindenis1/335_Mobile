@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Animations.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout Spacing="15">
+
+            <BoxView x:Name="box" Color="Aqua" WidthRequest="150" HeightRequest="150" />
+
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,15,0,0">
+                <Label Text="Rotate" VerticalOptions="Center" />
+                <Switch IsToggled="{Binding Toggled}" />
+                <Label Text="{Binding Label}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout HorizontalOptions="Center" Margin="0,10,0,0">
+                <Button Text="Left" Command="{Binding MoveBoxCommand}">
+                    <Button.CommandParameter>
+                        <x:Int32>-1</x:Int32>
+                    </Button.CommandParameter>
+                </Button>
+                <Button Text="Right" Command="{Binding MoveBoxCommand}">
+                    <Button.CommandParameter>
+                        <x:Int32>1</x:Int32>
+                    </Button.CommandParameter>
+                </Button>
+            </HorizontalStackLayout>
+
+            <Label Text="{Binding Speed, StringFormat='Speed {0}'}" />
+            <Slider Value="{Binding Speed}" Minimum="1" Maximum="10" />
+
+        </VerticalStackLayout>
+
+    </ScrollView>
+
+</ContentPage>
