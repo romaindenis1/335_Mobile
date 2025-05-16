@@ -36,6 +36,7 @@ namespace Flashcards
         public ICommand DeleteCardCommand { get; }
         public ICommand SaveCardCommand { get; }
         public ICommand CancelCommand { get; }
+        public ICommand PlayCommand { get; }
 
         public CardViewModel()
         {
@@ -44,6 +45,18 @@ namespace Flashcards
                 new Card { Question = "Quelle est la capitale du kenya?", Answer = "Nairobi" },
                 new Card { Question = "Quelle est la capitale du danemark?", Answer = "Copenhagen" }
             };
+
+            PlayCommand = new Command(async () =>
+            {
+                if (Cards.Any())
+                {
+                    await Application.Current.MainPage.Navigation.PushAsync(new FlashcardPlayPage(this));
+                }
+                else
+                {
+                    await Application.Current.MainPage.DisplayAlert("No Cards", "Please add some flashcards first!", "OK");
+                }
+            });
 
             AddCardCommand = new Command(async () =>
             {

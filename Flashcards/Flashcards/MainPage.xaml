@@ -4,10 +4,20 @@
              x:Class="Flashcards.MainPage">
     <ScrollView>
         <VerticalStackLayout Padding="20">
-            <Button Text="Add New Card" 
-                    Command="{Binding AddCardCommand}" 
-                    HorizontalOptions="Center" 
-                    Margin="0,10"/>
+            <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Button Text="Play" 
+                        Command="{Binding PlayCommand}"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Green"
+                        TextColor="White"
+                        Margin="0,10"/>
+                <Button Text="Add New Card" 
+                        Command="{Binding AddCardCommand}" 
+                        HorizontalOptions="Center" 
+                        Margin="0,10"
+                        BackgroundColor="Blue"/>
+            </HorizontalStackLayout>
+            
             <CollectionView ItemsSource="{Binding Cards}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

@@ -8,6 +8,9 @@ namespace Flashcards
         {
             InitializeComponent();
             BindingContext = viewModel;
+            
+            //Texte dynamique pour pas avoir edit card partout
+            TitleLabel.Text = viewModel.SelectedCard.Question == null ? "Add Card" : "Edit Card";
         }
     }
 }

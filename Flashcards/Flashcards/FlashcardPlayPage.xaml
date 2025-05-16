@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Flashcards.FlashcardPlayPage">
+    <Grid RowDefinitions="Auto,*,Auto" Padding="20">
+        <Label Text="Study Mode" 
+               FontSize="24" 
+               HorizontalOptions="Center"
+               Margin="0,0,0,20"/>
+        
+        <Frame Grid.Row="1"
+               x:Name="CardFrame"
+               BackgroundColor="White"
+               BorderColor="Gray"
+               CornerRadius="10"
+               Margin="20"
+               HeightRequest="300"
+               WidthRequest="300"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">
+            <Frame.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding FlipCardCommand}"/>
+            </Frame.GestureRecognizers>
+            
+            <Grid>
+                <Grid.Triggers>
+                    <DataTrigger TargetType="Grid"
+                                Binding="{Binding Rotation}"
+                                Value="90">
+                        <Setter Property="Scale" Value="0"/>
+                    </DataTrigger>
+                </Grid.Triggers>
+                
+                <Grid.RotationY>
+                    <Binding Path="Rotation"/>
+                </Grid.RotationY>
+                
+                <VerticalStackLayout HorizontalOptions="Center" 
+                                   VerticalOptions="Center">
+                    <Label Text="{Binding CurrentText}"
+                           FontSize="20"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+            </Grid>
+        </Frame>
+
+        <Button Grid.Row="2"
+                Text="✗ Wrong"
+                Command="{Binding IncorrectAnswerCommand}"
+                BackgroundColor="Red"
+                TextColor="White"
+                WidthRequest="120"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                Margin="0,20,0,0">
+            <Button.Triggers>
+                <DataTrigger TargetType="Button"
+                            Binding="{Binding ShowAnswerButtons}"
+                            Value="False">
+                    <Setter Property="IsVisible" Value="False"/>
+                </DataTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>
+</ContentPage> 
