@@ -311,3 +311,46 @@ Continuation de projet
 ## Sequence 8 (16/05/25)
 
 ### Animations
+
+- Purpose: make app feel dynamic
+- Types:
+  - Fade → FadeTo(opacity)
+  - Rotate → RotateTo(angle)
+  - Scale → ScaleTo(size)
+  - Translate → TranslateTo(position)
+- All return Task, use with async/await
+- Only View (code-behind) touches UI
+
+MVVM method:
+
+- ViewModel:
+  - Has Action<int> → RotateBoxUIAction, MoveUIAction
+  - Calls: RotateBoxUIAction?.Invoke(angle)
+
+Example in exersice:
+
+- Switch → starts/stops rotation
+- Slider → controls speed
+- Buttons << and >> → move box (left and right)
+- Uses Easing.SpringOut
+- Needs `if (box != null)` to avoid crash
+
+#### Problems i had
+
+- Animation doesn’t run
+
+  - Check `if (box != null)`
+  - Made the Action = `set (vm.RotateBoxUIAction = RotateUI;)`
+
+- UI freezes during animation
+
+  - Need to use await aync `await box.RotateTo(...)`
+
+- Nothing happens on button press
+
+  - Bind the command properly `{Binding MoveBoxCommand}`
+
+- Animation jumps instead of moving smoothly
+  - Reset \_currentX correctly
+  - Used easing (ex: `Easing.SpringOut`)
+
