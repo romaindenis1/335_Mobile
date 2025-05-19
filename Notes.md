@@ -354,3 +354,66 @@ Example in exersice:
   - Reset \_currentX correctly
   - Used easing (ex: `Easing.SpringOut`)
 
+### Sensors
+
+- Namespace: Microsoft.Maui.Devices.Sensors
+- Measures acceleration on:
+  - X: left/right
+  - Y: up/down
+  - Z: front/back
+- Values in G (m/s^2)
+
+SensorSpeed:
+
+- Default: 200ms
+- UI: 60ms
+- Game: 20ms
+- Fastest: 5ms
+
+Events:
+
+- ReadingChanged → live data
+- ShakeDetected → detects shake
+
+MVVM usage:
+
+- Properties: XValue, YValue, ZValue, Status
+- Commands: StartMonitoring, StopMonitoring
+- Values updated on OnReadingChanged
+- Bound to UI labels in XAML
+
+Shake-only version:
+
+- Uses ShakeDetected
+- Triggers animation (ex: ScaleTo() label)
+
+Best practices:
+
+- Stop sensor in OnDisappearing()
+- Request permission (AndroidManifest)
+
+#### Problems i had
+
+- No data showing
+
+  - Checked _Accelerometer.Default.IsSupported_
+  - Ensured _StartMonitoring()_ was called
+
+- App crashes on close
+
+  - Stop sensor in _OnDisappearing()_
+
+- Shake not detected
+
+  - Used _SensorSpeed.Game_ for higher sensitivity
+
+- Permission errors on Android
+
+  - Add to AndroidManifest.xml:
+
+  ```bash
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true" />
+  ```
+
+- Lag in value display
+  - Use _MainThread.BeginInvokeOnMainThread()_ to update UI
