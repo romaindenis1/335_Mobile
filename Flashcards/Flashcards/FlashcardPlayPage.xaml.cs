@@ -92,7 +92,7 @@ namespace Flashcards
             {
                 if (viewModel.ShowAnswerButtons)
                 {
-                    viewModel.HandleCorrectAnswer();
+                    viewModel.HandleWrongAnswer();
                 }
             });
         }

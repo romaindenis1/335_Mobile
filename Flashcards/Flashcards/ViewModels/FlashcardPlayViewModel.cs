@@ -51,7 +51,7 @@ namespace Flashcards
         }
 
         public ICommand FlipCardCommand { get; }
-        public ICommand IncorrectAnswerCommand { get; }
+        public ICommand CorrectAnswerCommand { get; }
 
         public FlashcardPlayViewModel(ObservableCollection<Card> cards)
         {
@@ -65,13 +65,14 @@ namespace Flashcards
             }
 
             FlipCardCommand = new Command(FlipCard);
-            IncorrectAnswerCommand = new Command(HandleIncorrectAnswer);
+            CorrectAnswerCommand = new Command(HandleCorrectAnswer);
         }
 
         private async void FlipCard()
         {
             if (_currentCard == null) return;
 
+            // First half of the flip animation
             for (int i = 0; i <= 18; i++)
             {
                 Rotation = i * 10;
@@ -127,7 +128,7 @@ namespace Flashcards
             MoveToNextCard();
         }
 
-        private void HandleIncorrectAnswer()
+        public void HandleWrongAnswer()
         {
             MoveToNextCard();
         }

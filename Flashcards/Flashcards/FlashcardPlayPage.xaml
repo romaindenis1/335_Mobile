@@ -51,9 +51,9 @@
         </Frame>
 
         <Button Grid.Row="2"
-                Text="✗ Wrong"
-                Command="{Binding IncorrectAnswerCommand}"
-                BackgroundColor="Red"
+                Text="✓ Correct"
+                Command="{Binding CorrectAnswerCommand}"
+                BackgroundColor="Green"
                 TextColor="White"
                 WidthRequest="120"
                 HeightRequest="40"
