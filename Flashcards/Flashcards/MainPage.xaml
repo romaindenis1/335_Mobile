@@ -15,7 +15,8 @@
                         Command="{Binding AddCardCommand}" 
                         HorizontalOptions="Center" 
                         Margin="0,10"
-                        BackgroundColor="Blue"/>
+                        BackgroundColor="Blue"
+                        TextColor="White"/>
             </HorizontalStackLayout>
             
             <CollectionView ItemsSource="{Binding Cards}">
