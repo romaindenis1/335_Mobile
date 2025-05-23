@@ -3,6 +3,8 @@ using System.ComponentModel;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using Microsoft.Maui.Controls;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Flashcards
 {
@@ -14,6 +16,7 @@ namespace Flashcards
         private string _currentText;
         private int _currentIndex = 0;
         private double _rotation = 0;
+        private System.Random _random = new System.Random();
 
         public string CurrentText
         {
@@ -38,6 +41,11 @@ namespace Flashcards
         public bool ShowAnswerButtons
         {
             get => !_showingQuestion;
+            private set
+            {
+                _showingQuestion = !value;
+                OnPropertyChanged(nameof(ShowAnswerButtons));
+            }
         }
 
         public ICommand FlipCardCommand { get; }
@@ -45,7 +53,8 @@ namespace Flashcards
 
         public FlashcardPlayViewModel(ObservableCollection<Card> cards)
         {
-            _cards = new ObservableCollection<Card>(cards);
+            _cards = new ObservableCollection<Card>(cards.OrderBy(x => _random.Next()));
+            
             if (_cards.Any())
             {
                 _currentCard = _cards[0];
@@ -63,7 +72,7 @@ namespace Flashcards
             for (int i = 0; i <= 18; i++)
             {
                 Rotation = i * 10;
-                await Task.Delay(20);
+                await Task.Delay(50);
             }
 
             _showingQuestion = !_showingQuestion;
@@ -73,10 +82,11 @@ namespace Flashcards
             for (int i = 18; i <= 36; i++)
             {
                 Rotation = i * 10;
-                await Task.Delay(20);
+                await Task.Delay(50);
             }
 
             Rotation = 0;
+            await Task.Delay(500);
         }
 
         private async void MoveToNextCard()
@@ -91,6 +101,7 @@ namespace Flashcards
             }
             else
             {
+                await Application.Current.MainPage.DisplayAlert("Deck Complete!", "You've finished studying all the cards!", "OK");
                 await Application.Current.MainPage.Navigation.PopAsync();
             }
         }
