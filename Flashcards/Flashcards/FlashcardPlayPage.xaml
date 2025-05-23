@@ -36,12 +36,16 @@
                 </Grid.RotationY>
                 
                 <VerticalStackLayout HorizontalOptions="Center" 
-                                   VerticalOptions="Center">
+                                   VerticalOptions="Center"
+                                   Padding="20">
                     <Label Text="{Binding CurrentText}"
                            FontSize="20"
+                           TextColor="Black"
                            HorizontalOptions="Center"
                            VerticalOptions="Center"
-                           HorizontalTextAlignment="Center"/>
+                           HorizontalTextAlignment="Center"
+                           LineBreakMode="WordWrap"
+                           MaxLines="10"/>
                 </VerticalStackLayout>
             </Grid>
         </Frame>
@@ -54,14 +58,7 @@
                 WidthRequest="120"
                 HeightRequest="40"
                 HorizontalOptions="Center"
-                Margin="0,20,0,0">
-            <Button.Triggers>
-                <DataTrigger TargetType="Button"
-                            Binding="{Binding ShowAnswerButtons}"
-                            Value="False">
-                    <Setter Property="IsVisible" Value="False"/>
-                </DataTrigger>
-            </Button.Triggers>
-        </Button>
+                Margin="0,20,0,0"
+                IsVisible="{Binding ShowAnswerButtons}"/>
     </Grid>
 </ContentPage> 

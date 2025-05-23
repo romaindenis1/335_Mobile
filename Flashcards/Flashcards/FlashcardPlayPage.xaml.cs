@@ -1,13 +1,16 @@
 using Microsoft.Maui.Controls;
 using Microsoft.Maui.Devices.Sensors;
+using System.Diagnostics;
 
 namespace Flashcards
 {
     public partial class FlashcardPlayPage : ContentPage
     {
         private DateTime lastShakeTime = DateTime.MinValue;
-        private const double ShakeThreshold = 10.0;
+        private const double ShakeThreshold = 2.0;
         private FlashcardPlayViewModel viewModel;
+        private double lastAcceleration = 0;
+        private const double AccelerationChangeThreshold = 0.8;
 
         public FlashcardPlayPage(CardViewModel cardViewModel)
         {
@@ -29,11 +32,11 @@ namespace Flashcards
             {
                 try
                 {
-                    Accelerometer.Default.Start(SensorSpeed.Game);
+                    Accelerometer.Default.Start(SensorSpeed.UI);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // Handle if accelerometer cannot be started
+                    Debug.WriteLine($"Failed to start accelerometer: {ex.Message}");
                 }
             }
         }
@@ -47,9 +50,9 @@ namespace Flashcards
                 {
                     Accelerometer.Default.Stop();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    // Handle if accelerometer cannot be stopped
+                    Debug.WriteLine($"Failed to stop accelerometer: {ex.Message}");
                 }
             }
         }
@@ -62,13 +65,15 @@ namespace Flashcards
         private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
             var reading = e.Reading;
-            // Calculate total acceleration
             double acceleration = Math.Sqrt(
                 reading.Acceleration.X * reading.Acceleration.X +
                 reading.Acceleration.Y * reading.Acceleration.Y +
                 reading.Acceleration.Z * reading.Acceleration.Z);
 
-            if (acceleration > ShakeThreshold)
+            double accelerationChange = Math.Abs(acceleration - lastAcceleration);
+            lastAcceleration = acceleration;
+
+            if (acceleration > ShakeThreshold || accelerationChange > AccelerationChangeThreshold)
             {
                 HandleShake();
             }
@@ -76,18 +81,19 @@ namespace Flashcards
 
         private void HandleShake()
         {
-            // Prevent multiple shakes from being detected too quickly
-            if ((DateTime.Now - lastShakeTime).TotalMilliseconds < 1000)
+            if ((DateTime.Now - lastShakeTime).TotalMilliseconds < 500)
+            {
                 return;
+            }
 
             lastShakeTime = DateTime.Now;
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                if (!viewModel.ShowAnswerButtons)
-                    return;
-
-                viewModel.HandleCorrectAnswer();
+                if (viewModel.ShowAnswerButtons)
+                {
+                    viewModel.HandleCorrectAnswer();
+                }
             });
         }
     }
