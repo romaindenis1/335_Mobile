@@ -2,14 +2,46 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Flashcards.ResultsPage"
-             Title="ResultsPage">
-    <StackLayout Padding="20">
-        <Label Text="Les capitales" FontSize="22" HorizontalOptions="Center"/>
-        <Label Text="Temps: 20s&#10;Parfait: 10&#10;Score: 87%" />
-        <Label Text="Carte Difficile:" FontAttributes="Bold"/>
-        <Frame>
-            <Label Text="Quelle est la capitale de la mongolie?" />
+             Title="Results">
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="Study Results"
+               FontSize="32"
+               HorizontalOptions="Center"
+               Margin="0,20,0,40"/>
+
+        <Frame BackgroundColor="White"
+               BorderColor="Gray"
+               CornerRadius="10"
+               Padding="20"
+               Margin="20"
+               HasShadow="True">
+            <VerticalStackLayout Spacing="16">
+                <Label Text="{Binding CorrectAnswers, StringFormat='Correct Answers: {0}'}"
+                       FontSize="22"
+                       HorizontalOptions="Center"
+                       TextColor="DarkGreen"/>
+                <Label Text="{Binding TotalCards, StringFormat='Total Cards: {0}'}"
+                       FontSize="22"
+                       HorizontalOptions="Center"
+                       TextColor="DarkBlue"/>
+                <Label Text="{Binding CorrectPercentage, StringFormat='Correct: {0}'}"
+                       FontSize="22"
+                       HorizontalOptions="Center"
+                       TextColor="DarkOrange"/>
+                <Label Text="{Binding FormattedTime, StringFormat='Time Spent: {0}'}"
+                       FontSize="22"
+                       HorizontalOptions="Center"
+                       TextColor="DarkViolet"/>
+            </VerticalStackLayout>
         </Frame>
-        <Button Text="Terminer"/>
-    </StackLayout>
+
+        <Button Text="Back to Main Menu"
+                Command="{Binding BackToMainCommand}"
+                BackgroundColor="Blue"
+                TextColor="White"
+                WidthRequest="200"
+                HeightRequest="50"
+                HorizontalOptions="Center"
+                Margin="0,40,0,0"/>
+    </VerticalStackLayout>
 </ContentPage>
