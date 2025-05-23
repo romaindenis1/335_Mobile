@@ -17,6 +17,8 @@ namespace Flashcards
         private int _currentIndex = 0;
         private double _rotation = 0;
         private System.Random _random = new System.Random();
+        private int _correctAnswers = 0;
+        private DateTime _startTime;
 
         public string CurrentText
         {
@@ -54,6 +56,7 @@ namespace Flashcards
         public FlashcardPlayViewModel(ObservableCollection<Card> cards)
         {
             _cards = new ObservableCollection<Card>(cards.OrderBy(x => _random.Next()));
+            _startTime = DateTime.Now;
             
             if (_cards.Any())
             {
@@ -72,21 +75,22 @@ namespace Flashcards
             for (int i = 0; i <= 18; i++)
             {
                 Rotation = i * 10;
-                await Task.Delay(50);
+                await Task.Delay(16); // 60 FPS
             }
 
             _showingQuestion = !_showingQuestion;
             CurrentText = _showingQuestion ? _currentCard.Question : _currentCard.Answer;
             OnPropertyChanged(nameof(ShowAnswerButtons));
 
+            // Second half of the flip animation
             for (int i = 18; i <= 36; i++)
             {
                 Rotation = i * 10;
-                await Task.Delay(50);
+                await Task.Delay(16); // 60 FPS
             }
 
             Rotation = 0;
-            await Task.Delay(500);
+            await Task.Delay(200); // Shorter delay after flip
         }
 
         private async void MoveToNextCard()
@@ -101,13 +105,25 @@ namespace Flashcards
             }
             else
             {
-                await Application.Current.MainPage.DisplayAlert("Deck Complete!", "You've finished studying all the cards!", "OK");
-                await Application.Current.MainPage.Navigation.PopAsync();
+                var timeSpent = DateTime.Now - _startTime;
+                Debug.WriteLine($"Moving to ResultsPage with: CorrectAnswers={_correctAnswers}, TotalCards={_cards.Count}, TimeSpent={timeSpent}");
+                try
+                {
+                    var resultsPage = new ResultsPage(_correctAnswers, _cards.Count, timeSpent);
+                    Debug.WriteLine("ResultsPage created successfully");
+                    await Application.Current.MainPage.Navigation.PushAsync(resultsPage);
+                    Debug.WriteLine("Navigation completed");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error navigating to ResultsPage: {ex}");
+                }
             }
         }
 
         public void HandleCorrectAnswer()
         {
+            _correctAnswers++;
             MoveToNextCard();
         }
 
