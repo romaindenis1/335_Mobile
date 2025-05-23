@@ -1,10 +1,13 @@
-﻿namespace Flashcards
+﻿namespace Flashcards;
+
+public partial class AppShell : Shell
 {
-    public partial class AppShell : Shell
+    public AppShell()
     {
-        public AppShell()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Routing.RegisterRoute(nameof(ModifyCardPage), typeof(ModifyCardPage));
+        Routing.RegisterRoute(nameof(AddCardPage), typeof(AddCardPage));
+        Routing.RegisterRoute(nameof(AnswerPage), typeof(AnswerPage));
+        Routing.RegisterRoute(nameof(ResultsPage), typeof(ResultsPage));
     }
 }

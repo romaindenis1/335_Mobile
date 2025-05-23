@@ -85,8 +85,7 @@ namespace Flashcards
             {
                 if (card != null)
                 {
-                    SelectedCard = card;
-                    await Application.Current.MainPage.Navigation.PushAsync(new DeleteCardPage(this));
+                    Cards.Remove(card);
                 }
             });
 

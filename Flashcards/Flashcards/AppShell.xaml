@@ -23,11 +23,6 @@
             Route="AddCardPage" />
 
         <ShellContent 
-            Title="Delete" 
-            ContentTemplate="{DataTemplate local:DeleteCardPage}" 
-            Route="DeleteCardPage" />
-
-        <ShellContent 
             Title="Answer" 
             ContentTemplate="{DataTemplate local:AnswerPage}" 
             Route="AnswerPage" />
